@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-:root {
-  --background: #FEFEFE;
-  --text: #0A0614;
-  --cor-primaria: #2349FF;
-}
+/* Estilos da página Depoimentos */
 
 * {
   margin: 0;
@@ -12,121 +6,165 @@
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100dvh;
-}
-
-body {
-  font-family: 'Inter', Segoe UI, Arial, Helvetica, sans-serif;
-  font-optical-sizing: auto;
-  padding: 30px 150px;
-  background-color: var(--background);
-  display: flex;
-  flex-direction: column;
-}
-
-body * {
-  color: var(--text);
-}
-
 html {
   scroll-behavior: smooth;
 }
 
-main {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+body {
+  min-height: 100vh;
+  padding: 30px 8%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  background-color: #584099;
+  color: white;
 }
+
+/* Menu */
 
 .menu {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin: 50px 0 50px 0;
+  justify-content: center;
+  margin-bottom: 60px;
 }
 
 .menu ul {
   display: flex;
   align-items: center;
-  gap: 30px;
-}
-
-.menu ul li {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
   list-style: none;
 }
 
-.menu ul li a {
+.menu li {
+  list-style: none;
+  transition: transform 0.2s ease;
+}
+
+.menu li:hover {
+  transform: translateY(-3px);
+}
+
+.menu a {
+  display: block;
+  padding: 10px 16px;
+  border-radius: 30px;
+  color: white;
   text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.menu a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .pag-ativa {
-  background-color: var(--cor-primaria);
-  border-radius: 100px;
-  color: var(--background);
-  padding: 15px 30px;
+  background-color: #7C5DD3;
 }
+
+/* Introdução */
 
 .intro {
+  margin-bottom: 45px;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.intro > h1 {
-  font-size: 96px;
-  font-weight: 700;
+.intro h1 {
+  font-size: 3.5rem;
 }
+
+.intro p {
+  margin-top: 10px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Depoimentos */
 
 .depoimentos {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 15px;
-  padding: 0 70px;
-  margin-top: 30px;
+  gap: 25px;
 }
 
 .profile {
-  flex: 0 0 350px;
-  min-width: 350px;
-  border: 1px solid #CAD9EC;
-  border-radius: 24px;
-  padding: 15px;
-  background: white;
+  flex: 1 1 320px;
+  max-width: 380px;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #7c5dd3;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.profile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .img {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .photo {
-  width: 80px;
-  height: 80px;
+  width: 90px;
+  height: 90px;
   object-fit: cover;
-  display: block;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.7);
 }
 
-.name,
-.client,
-.title-depoimento {
-  text-align: center;
+.name {
+  margin-bottom: 5px;
+}
+
+.client {
+  opacity: 0.8;
 }
 
 .title-depoimento {
-  margin-top: 10px;
+  margin: 20px 0 12px;
+  font-size: 1.1rem;
 }
 
 .depoimento p {
-  text-align: justify;
+  line-height: 1.7;
 }
 
+/* Rodapé */
+
 footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: auto;
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+}
+
+footer p {
+  opacity: 0.8;
+}
+
+/* Responsividade */
+
+@media (max-width: 900px) {
+  body {
+    padding: 20px;
+  }
+
+  .intro h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .intro h1 {
+    font-size: 2.4rem;
+  }
+
+  .profile {
+    flex-basis: 100%;
+  }
 }

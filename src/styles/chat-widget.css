@@ -1,0 +1,236 @@
+/* ===================================================================
+   Widget de Chat com IA — Squad B
+   Estilos isolados sob #ia-chat-widget para não sofrer interferência
+   dos seletores globais (body *, a, li, ul) que cada página já define
+   com seu próprio CSS.
+   =================================================================== */
+
+#ia-chat-widget,
+#ia-chat-widget * {
+  box-sizing: border-box !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
+#ia-chat-widget {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+}
+
+/* Botão flutuante */
+#ia-chat-toggle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50% !important;
+  border: none !important;
+  background-color: #2349FF !important;
+  color: #fff !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(35, 73, 255, 0.4);
+  transition: transform 200ms ease;
+  padding: 0 !important;
+}
+
+#ia-chat-toggle:hover {
+  transform: translateY(-3px) scale(1.03);
+}
+
+#ia-chat-toggle svg {
+  width: 26px;
+  height: 26px;
+  fill: #fff !important;
+  stroke: #fff !important;
+}
+
+#ia-chat-toggle .ia-chat-badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #ff4d4f !important;
+  color: #fff !important;
+  font-size: 11px !important;
+  line-height: 1;
+  padding: 4px 6px !important;
+  border-radius: 999px !important;
+  font-weight: 700 !important;
+}
+
+/* Janela do chat */
+#ia-chat-window {
+  position: absolute;
+  bottom: 76px;
+  right: 0;
+  width: 340px;
+  max-width: calc(100vw - 32px);
+  height: 460px;
+  max-height: 70vh;
+  background-color: #FEFEFE !important;
+  border-radius: 16px !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e4e4e4 !important;
+}
+
+#ia-chat-window.ia-chat-open {
+  display: flex;
+}
+
+#ia-chat-header {
+  background-color: #2349FF !important;
+  color: #fff !important;
+  padding: 14px 16px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#ia-chat-header h2 {
+  font-size: 15px !important;
+  margin: 0 !important;
+  font-weight: 600 !important;
+  color: #fff !important;
+}
+
+#ia-chat-header p {
+  font-size: 11px !important;
+  margin: 2px 0 0 0 !important;
+  color: #d7deff !important;
+}
+
+#ia-chat-close {
+  background: transparent !important;
+  border: none !important;
+  color: #fff !important;
+  cursor: pointer;
+  font-size: 18px !important;
+  line-height: 1;
+  padding: 4px !important;
+}
+
+#ia-chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 10px !important;
+  background-color: #FEFEFE !important;
+}
+
+.ia-chat-msg {
+  max-width: 82%;
+  padding: 9px 12px !important;
+  border-radius: 12px !important;
+  font-size: 13.5px !important;
+  line-height: 1.4 !important;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.ia-chat-msg.ia-user {
+  align-self: flex-end;
+  background-color: #2349FF !important;
+  color: #fff !important;
+  border-bottom-right-radius: 3px !important;
+}
+
+.ia-chat-msg.ia-bot {
+  align-self: flex-start;
+  background-color: #f0f1f6 !important;
+  color: #0A0614 !important;
+  border-bottom-left-radius: 3px !important;
+}
+
+.ia-chat-msg.ia-error {
+  align-self: center;
+  background-color: #ffe6e6 !important;
+  color: #b30000 !important;
+  font-size: 12px !important;
+  text-align: center;
+}
+
+.ia-chat-typing {
+  align-self: flex-start;
+  display: flex;
+  gap: 4px !important;
+  padding: 10px 12px !important;
+}
+
+.ia-chat-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50% !important;
+  background-color: #b7bcd6 !important;
+  display: inline-block;
+  animation: ia-chat-bounce 1.2s infinite ease-in-out;
+}
+
+.ia-chat-typing span:nth-child(2) { animation-delay: 0.15s; }
+.ia-chat-typing span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes ia-chat-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+#ia-chat-form {
+  display: flex !important;
+  gap: 8px !important;
+  padding: 10px !important;
+  border-top: 1px solid #eee !important;
+  background-color: #fff !important;
+}
+
+#ia-chat-input {
+  flex: 1;
+  border: 1px solid #d8d8e0 !important;
+  border-radius: 20px !important;
+  padding: 9px 14px !important;
+  font-size: 13.5px !important;
+  outline: none;
+  color: #0A0614 !important;
+  background-color: #fff !important;
+}
+
+#ia-chat-input:focus {
+  border-color: #2349FF !important;
+}
+
+#ia-chat-send {
+  border: none !important;
+  background-color: #2349FF !important;
+  color: #fff !important;
+  width: 38px;
+  height: 38px;
+  border-radius: 50% !important;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 0 !important;
+}
+
+#ia-chat-send:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+#ia-chat-send svg {
+  width: 16px;
+  height: 16px;
+  fill: #fff !important;
+}
+
+@media (max-width: 420px) {
+  #ia-chat-window {
+    width: calc(100vw - 24px);
+    right: -12px;
+  }
+}

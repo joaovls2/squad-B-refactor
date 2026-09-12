@@ -1,119 +1,187 @@
-/* Estilos base - personalize para seu squad */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --background: #fefefe;
+  --text: #0a0614;
+  --primary: #2349ff;
+  --primary-light: #c27cfa;
+  --card: #ad66f5;
+  --border: #cad9ec;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont,
-               'Segoe UI', sans-serif;
-               margin: 40px;
-               background-image: linear-gradient(270deg, #8800f8, #bd88f3);
-               margin: 20px;
-               height: 100vh;
+  min-height: 100vh;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #8800f8, #bd88f3);
+  color: var(--text);
 }
 
-    header {
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  align-items:end;
-  
-  
+/* Navegação */
+
+header {
+  padding: 30px 50px;
 }
+
+.menu {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.menu ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style: none;
+}
+
+.menu li {
+  list-style: none;
+  transition: transform 0.2s ease;
+}
+
+.menu li:hover {
+  transform: translateY(-3px);
+}
+
+.menu a {
+  display: block;
+  padding: 10px 16px;
+  border-radius: 30px;
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.menu a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+.pag-ativa {
+  background-color: #7C5DD3;
+}
+
+/* Conteúdo */
 
 main {
-  font-family: "Science Gothic", sans-serif;  
-  margin: 50px;
-  padding: 20px;
-  background-color: #ad66f5;
-  box-shadow: #613f7ce5 10px 10px 20px;
+  max-width: 1100px;
+  min-height: 65vh;
+  margin: 30px auto;
+  padding: 70px 40px;
+  background-color: var(--card);
   border-radius: 40px;
-}
-
-ul {
-  display: inline-flex;
-  justify-content: space-between;
-  list-style-type: none;
-  padding: 10px;
-  margin: auto;
-  
-  
-}
-
-li {
-  
-  margin: 0 15px;
-  padding: 15px 25px;
-  background-color: #C27CFA;
-  box-shadow: #613f7ce5 10px 10px 20px;
-  border-radius: 40px;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}
-
-h1, p {
-  text-align: center;
-  color: white;
-  
-}
-
-h1 {
-  font-size: 3em;
-  margin-bottom: 20px;
-}
-
-.button {
-  display: flex;  
-  gap: 15px;                 
-  justify-content: center;    
-  margin: 30px;
-
-}
-.button a {
-  display: flex;             
+  box-shadow: 0 15px 30px rgba(97, 63, 124, 0.5);
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.principal {
+  max-width: 800px;
+  text-align: center;
+}
+
+.principal h1 {
+  margin-bottom: 20px;
+  font-size: 3.2rem;
+  line-height: 1.1;
+  color: white;
+}
+
+.principal p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: white;
+}
+
+/* Redes sociais */
+
+.button {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 35px;
+}
+
+.button a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  padding: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.15);
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.button a:hover {
+  transform: translateY(-5px);
+  background-color: var(--primary);
+}
+
 .button a svg {
-  width: 50px;             
-  height: 50px;
-  vertical-align: middle;
+  width: 38px;
+  height: 38px;
+  fill: white;
 }
 
-@keyframes salto {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0); 
-    }
-    40% {
-        transform: translateY(-20px); 
-    }
-    60% {
-        transform: translateY(-10px);
-    } 
-} 
+/* Responsividade */
 
-#github, #linkedin{
-    display: inline-block;
-    padding: 10px 15px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out; 
+@media (max-width: 900px) {
+  header {
+    padding: 20px;
+  }
+
+  .menu {
+    justify-content: center;
+  }
+
+  .menu ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  main {
+    margin: 20px;
+  }
 }
 
-#github:hover, #linkedin:hover {
-    transform: translateY(-10px);
-}
+@media (max-width: 600px) {
+  .menu ul {
+    gap: 5px;
+  }
 
-li {
-    display: inline-block;
-    padding: 10px 15px;
-    text-decoration: none;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease-in-out; 
-}
+  .menu a {
+    padding: 9px 12px;
+    font-size: 0.9rem;
+  }
 
-li:hover{
-    transform: translateY(-10px);
+  main {
+    min-height: 60vh;
+    padding: 50px 25px;
+    border-radius: 25px;
+  }
+
+  .principal h1 {
+    font-size: 2.2rem;
+  }
+
+  .principal p {
+    font-size: 1rem;
+  }
 }

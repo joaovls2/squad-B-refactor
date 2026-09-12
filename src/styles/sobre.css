@@ -1,10 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
-:root {
-  --background: #FEFEFE;
-  --text: #0A0614;
-  --cor-primaria: #2349FF;
-}
+/* Estilos da página Sobre */
 
 * {
   margin: 0;
@@ -12,134 +6,195 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Inter', Segoe UI, Arial, Helvetica, sans-serif;
-  font-optical-sizing: auto;
-  margin-left: 150px;
-  margin-right: 150px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color: var(--background);
+html {
+  scroll-behavior: smooth;
 }
 
-body * {
-  color: var(--text);
+body {
+  min-height: 100vh;
+  padding: 30px 8%;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', sans-serif;
+  background-color: #584099;
+  color: white;
 }
+
+/* Menu */
 
 .menu {
   display: flex;
-  align-items: center;
-  gap: 804px;
-  justify-content: flex-end;
-  margin-bottom: 100px;
-  margin-top: 50px;
+  justify-content: center;
+  margin-bottom: 60px;
 }
 
 .menu ul {
   display: flex;
   align-items: center;
-  gap: 30px;
-}
-
-.menu ul li {
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
   list-style: none;
-  gap: 10px;
 }
 
-.menu ul li a {
+.menu li {
+  list-style: none;
+  transition: transform 0.2s ease;
+}
+
+.menu li:hover {
+  transform: translateY(-3px);
+}
+
+.menu a {
+  display: block;
+  padding: 10px 16px;
+  border-radius: 30px;
+  color: white;
   text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.menu a:hover {
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 .pag-ativa {
-  background-color: var(--cor-primaria);
-  border-radius: 100px;
-  color: var(--background);
-  padding: 15px 30px;
+  background-color: #7C5DD3;
 }
+
+/* Apresentação */
 
 .apresentação {
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  margin-bottom: 50px;
 }
 
 .apresentação > img {
-  border-radius: 20px;
-  outline: 1px solid #C27CFA;
-  width: 450px;
-  height: 600px;
+  width: 300px;
+  height: 400px;
   flex-shrink: 0;
   object-fit: cover;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-.estrofe1 > h1 {
-  font-size: 96px;
-  font-weight: 700;
+.estrofe1 {
+  flex: 1;
 }
 
-.estrofe1 p {
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 35px;
-  padding-bottom: 30px;
-}
-
-.estrofe1 p > strong {
-  color: var(--cor-primaria);
-  font-size: 25px;
-  font-weight: 600;
-  line-height: 40px;
+.estrofe1 h1 {
+  margin-bottom: 25px;
+  font-size: 4.5rem;
 }
 
 .apresentação--intro {
-  width: 572px;
+  max-width: 700px;
 }
 
-.apresentação--link {
-  padding-top: 63px;
+.estrofe1 p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.apresentação--intro strong {
+  color: white;
+  font-size: 1.1rem;
+}
+
+/* Experiências */
+
+.work-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+  margin-bottom: 25px;
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #7c5dd3;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
 .company-logo {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+  object-fit: contain;
   border-radius: 50%;
-  width: 55px;
-  height: 55px;
-  margin-bottom: 15px;
-}
-
-.work-card {
-  border: 1px solid #CAD9EC;
-  border-radius: 24px;
-  padding: 30px;
-  margin-bottom: 50px;
-  margin-top: 50px;
-}
-
-.infos > h3 {
-  font-size: 16px;
-  font-weight: 600;
-  font-style: normal;
-  line-height: normal;
+  background-color: white;
+  padding: 5px;
 }
 
 .infos {
-  & > .company {
-    color: #6A6F8E;
-    font-size: 16px;
-    font-weight: 600;
-    font-style: normal;
-    line-height: normal;
+  flex: 1;
+}
+
+.infos h3 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.company {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.infos ul {
+  padding-left: 20px;
+}
+
+.infos li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+/* Responsividade */
+
+@media (max-width: 900px) {
+  body {
+    padding: 20px;
   }
-  & > ul {
-    & li {
-      padding-top: 16px;
-      padding-bottom: 16px;
-      font-weight: 200;
-      font-size: 16px;
-    }
-    & li::marker {
-      content: "- ";
-      font-size: 14px;
-      font-weight: 300;
-    }
+
+  .apresentação {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .apresentação > img {
+    width: 250px;
+    height: 330px;
+  }
+
+  .estrofe1 h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .menu ul {
+    gap: 5px;
+  }
+
+  .menu a {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+
+  .estrofe1 h1 {
+    font-size: 2.8rem;
+  }
+
+  .work-card {
+    flex-direction: column;
+    padding: 20px;
   }
 }
