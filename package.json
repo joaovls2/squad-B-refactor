@@ -1,0 +1,14 @@
+{
+  "name": "squad-b",
+  "version": "1.0.0",
+  "description": "Site do Squad B (ADS) com chat com IA. Refatorado a partir do projeto original do 1º período.",
+  "main": "src/server/server.js",
+  "scripts": {
+    "start": "node src/server/server.js",
+    "dev": "node --watch src/server/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
