@@ -317,37 +317,29 @@
 }
 
 #ia-chat-form {
-
+  height: 58px !important;
+  min-height: 58px !important;
+  max-height: 58px !important;
   display: flex !important;
-
+  align-items: center !important;
   gap: 8px !important;
-
   padding: 10px !important;
-
   border-top: 1px solid #eee !important;
-
   background-color: #fff !important;
-
 }
 
 #ia-chat-input {
-
   flex: 1;
-
+  height: 38px !important;
+  min-height: 38px !important;
+  max-height: 38px !important;
   border: 1px solid #d8d8e0 !important;
-
   border-radius: 20px !important;
-
   padding: 9px 14px !important;
-
   font-size: 13.5px !important;
-
   outline: none;
-
   color: #0A0614 !important;
-
   background-color: #fff !important;
-
 }
 
 #ia-chat-input:focus {

@@ -52,6 +52,10 @@ COMPORTAMENTO:
 
 app.use(express.json());
 
+app.get('/', (req, res) => {
+  res.redirect('/src/pages/home.html');
+});
+
 app.use(express.static(path.join(__dirname, '../../')));
 
 app.get('/api/health', (req, res) => {
