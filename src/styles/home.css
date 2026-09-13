@@ -3,9 +3,9 @@
 :root {
   --background: #fefefe;
   --text: #0a0614;
-  --primary: #2349ff;
+  --primary: #7C5DD3;
   --primary-light: #c27cfa;
-  --card: #ad66f5;
+  --card: #7C5DD3;
   --border: #cad9ec;
 }
 
@@ -22,7 +22,7 @@ html {
 body {
   min-height: 100vh;
   font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(135deg, #8800f8, #bd88f3);
+  background: linear-gradient(135deg, #7C5DD3, #c27cfa);
   color: var(--text);
 }
 
